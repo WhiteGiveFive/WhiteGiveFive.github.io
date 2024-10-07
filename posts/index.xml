@@ -25,5 +25,16 @@ How to measure likelihood?
 Example:
 tossing a coin, the observation is 6 heads and 3 tails. we use a parameter (system with) $/theta$ to express the chances of the head appearing in one toss</description>
     </item>
+    <item>
+      <title>08 27 Foundation</title>
+      <link>https://WhiteGiveFive.github.io/posts/2024-google-advanced-data-analysis/08-27-foundation/</link>
+      <pubDate>Tue, 27 Aug 2024 18:20:20 +0100</pubDate>
+      <guid>https://WhiteGiveFive.github.io/posts/2024-google-advanced-data-analysis/08-27-foundation/</guid>
+      <description>Module 3 Interview question types Behaviour questions and situational questions: test your skills and abilities in a certain condition. Technical questions and subjective questions: test your knowledge Autoencoder study notes What is the autoencoder?
+Unsupervised learning, data reconstruction. encoder and decoder, bottleneck
+Why do we use autoencoder? The compression of high-dimensional data, resulting the embeddings. the embedding benefits from the reconstruction
+The formular of embeddings and reconstruction
+$$\sin(\theta)$$ $a^2 + b^2 = c^2$</description>
+    </item>
   </channel>
 </rss>
