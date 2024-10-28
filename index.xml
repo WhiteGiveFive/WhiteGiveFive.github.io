@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Hongrui&#39;Site</title>
-    <link>http://localhost:1313/</link>
+    <link>https://WhiteGiveFive.github.io/</link>
     <description>Recent content on Hongrui&#39;Site</description>
     <image>
       <title>Hongrui&#39;Site</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://WhiteGiveFive.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://WhiteGiveFive.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.133.0</generator>
     <language>en</language>
     <lastBuildDate>Thu, 12 Sep 2024 23:09:22 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://WhiteGiveFive.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bayesian</title>
-      <link>http://localhost:1313/posts/statistics/bayesian/</link>
+      <link>https://WhiteGiveFive.github.io/posts/statistics/bayesian/</link>
       <pubDate>Thu, 12 Sep 2024 23:09:22 +0100</pubDate>
-      <guid>http://localhost:1313/posts/statistics/bayesian/</guid>
+      <guid>https://WhiteGiveFive.github.io/posts/statistics/bayesian/</guid>
       <description>Likelihood Likelihood helps us answer what are the best parameters/explanations that lead to your observation What is likelihood?
 Like the detective looking for clues for a case.
 Intuitions: different parameters lead to different probabilities of the observation
@@ -26,17 +26,10 @@ Example:
 tossing a coin, the observation is 6 heads and 3 tails. we use a parameter (system with) $/theta$ to express the chances of the head appearing in one toss</description>
     </item>
     <item>
-      <title>2nd Post</title>
-      <link>http://localhost:1313/posts/2nd-post/</link>
-      <pubDate>Thu, 12 Sep 2024 14:27:04 +0100</pubDate>
-      <guid>http://localhost:1313/posts/2nd-post/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>08 27 Foundation</title>
-      <link>http://localhost:1313/posts/2024-google-advanced-data-analysis/08-27-foundation/</link>
+      <link>https://WhiteGiveFive.github.io/posts/2024-google-advanced-data-analysis/08-27-foundation/</link>
       <pubDate>Tue, 27 Aug 2024 18:20:20 +0100</pubDate>
-      <guid>http://localhost:1313/posts/2024-google-advanced-data-analysis/08-27-foundation/</guid>
+      <guid>https://WhiteGiveFive.github.io/posts/2024-google-advanced-data-analysis/08-27-foundation/</guid>
       <description>Module 3 Interview question types Behaviour questions and situational questions: test your skills and abilities in a certain condition. Technical questions and subjective questions: test your knowledge Autoencoder study notes What is the autoencoder?
 Unsupervised learning, data reconstruction. encoder and decoder, bottleneck
 Why do we use autoencoder? The compression of high-dimensional data, resulting the embeddings. the embedding benefits from the reconstruction
@@ -44,18 +37,10 @@ The formular of embeddings and reconstruction
 $$\sin(\theta)$$ $a^2 + b^2 = c^2$</description>
     </item>
     <item>
-      <title>My First Post</title>
-      <link>http://localhost:1313/posts/my-first-post/</link>
-      <pubDate>Sat, 24 Aug 2024 23:12:43 +0100</pubDate>
-      <guid>http://localhost:1313/posts/my-first-post/</guid>
-      <description>Introduction This is bold text, and this is emphasized text.
-Visit the Hugo website!</description>
-    </item>
-    <item>
       <title>Layout</title>
-      <link>http://localhost:1313/layouts/</link>
+      <link>https://WhiteGiveFive.github.io/layouts/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/layouts/</guid>
+      <guid>https://WhiteGiveFive.github.io/layouts/</guid>
       <description>terms</description>
     </item>
   </channel>

@@ -2,30 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/posts/statistics/bayesian/</loc>
+    <loc>https://WhiteGiveFive.github.io/</loc>
+    <lastmod>2024-10-19T13:12:45+01:00</lastmod>
+  </url><url>
+    <loc>https://WhiteGiveFive.github.io/posts/</loc>
+    <lastmod>2024-10-19T13:12:45+01:00</lastmod>
+  </url><url>
+    <loc>https://WhiteGiveFive.github.io/posts/statistics/bayesian/</loc>
     <lastmod>2024-09-12T23:09:22+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2024-09-12T23:09:22+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2024-09-12T23:09:22+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/2nd-post/</loc>
-    <lastmod>2024-09-12T14:27:04+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/2024-google-advanced-data-analysis/08-27-foundation/</loc>
+    <loc>https://WhiteGiveFive.github.io/posts/2024-google-advanced-data-analysis/08-27-foundation/</loc>
     <lastmod>2024-08-27T18:20:20+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/my-first-post/</loc>
-    <lastmod>2024-08-24T23:12:43+01:00</lastmod>
+    <loc>https://WhiteGiveFive.github.io/archives/</loc>
   </url><url>
-    <loc>http://localhost:1313/archives/</loc>
+    <loc>https://WhiteGiveFive.github.io/categories/</loc>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://WhiteGiveFive.github.io/layouts/</loc>
   </url><url>
-    <loc>http://localhost:1313/layouts/</loc>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://WhiteGiveFive.github.io/tags/</loc>
   </url>
 </urlset>
