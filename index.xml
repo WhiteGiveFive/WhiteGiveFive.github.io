@@ -11,8 +11,26 @@
     </image>
     <generator>Hugo -- 0.133.0</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 12 Sep 2024 23:09:22 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 17 Nov 2024 21:30:55 +0000</lastBuildDate>
     <atom:link href="https://WhiteGiveFive.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Visions</title>
+      <link>https://WhiteGiveFive.github.io/posts/visions/</link>
+      <pubDate>Sun, 17 Nov 2024 21:30:55 +0000</pubDate>
+      <guid>https://WhiteGiveFive.github.io/posts/visions/</guid>
+      <description>Visions on Generative AI (GenAI) We want GenAI to be a perfect human no bias, no lies, not gullible
+Beyond language Language is the first area that GenAI demonstrates its power. But human intelligence is beyond a single dimension. There will be a need to make GenAI multiple forms.</description>
+    </item>
+    <item>
+      <title>Vision Transformer</title>
+      <link>https://WhiteGiveFive.github.io/posts/vision-transformer/</link>
+      <pubDate>Mon, 04 Nov 2024 16:34:05 +0000</pubDate>
+      <guid>https://WhiteGiveFive.github.io/posts/vision-transformer/</guid>
+      <description>Vision Transformer Swin ViT Paper, Swin Transformer: Hierarchical Vision Transformer using Shifted Windows.
+Original ViT is not scalable on computer vision tasks, the challenge roots in the varying scales of images, a key modality difference between language data and vision data.
+How Swin ViT promote ViT into a general backbone for computer vision tasks?
+Hierarchical reception field, reintroducing the locality from CNN models, using path merging. Shift window, retaining the connections cross the entire image with shift windows.</description>
+    </item>
     <item>
       <title>Bayesian</title>
       <link>https://WhiteGiveFive.github.io/posts/statistics/bayesian/</link>
@@ -33,7 +51,7 @@ tossing a coin, the observation is 6 heads and 3 tails. we use a parameter (syst
       <description>Module 3 Interview question types Behaviour questions and situational questions: test your skills and abilities in a certain condition. Technical questions and subjective questions: test your knowledge Autoencoder study notes What is the autoencoder?
 Unsupervised learning, data reconstruction. encoder and decoder, bottleneck
 Why do we use autoencoder? The compression of high-dimensional data, resulting the embeddings. the embedding benefits from the reconstruction
-The formular of embeddings and reconstruction
+The formula of embeddings and reconstruction
 $$\sin(\theta)$$ $a^2 + b^2 = c^2$</description>
     </item>
     <item>
