@@ -1,0 +1,90 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../site.config';
+import { getCollection } from 'astro:content';
+
+const pubs = await getCollection('publications');
+const projects = await getCollection('projects');
+const notes = await getCollection('notes', ({ data }) => !data.draft);
+const posts = await getCollection('writing', ({ data }) => !data.draft);
+
+// Selected work — exactly 3, drawn from whichever collection holds the artifact.
+const selected = [
+  ...pubs.filter((p) => p.data.selected).map((p) => ({
+    order: p.data.selected!,
+    stamp: String(p.data.year),
+    kind: 'paper',
+    title: p.data.title,
+    href: p.data.doi ? `https://doi.org/${p.data.doi}` : undefined,
+    why: p.data.why,
+  })),
+  ...projects.filter((p) => p.data.selected).map((p) => ({
+    order: p.data.selected!,
+    stamp: p.data.years,
+    kind: 'project',
+    title: p.data.name,
+    href: p.data.links[0]?.url,
+    why: p.data.why,
+  })),
+].sort((a, b) => a.order - b.order);
+
+const recent = [
+  ...notes.map((n) => ({ ...n.data, href: `/notes/${n.id}`, kind: 'note' })),
+  ...posts.map((p) => ({ ...p.data, href: `/writing/${p.id}`, kind: 'post' })),
+]
+  .sort((a, b) => b.date.valueOf() - a.date.valueOf())
+  .slice(0, 4);
+
+const fmt = (d: Date) =>
+  d.toISOString().slice(0, 10).replace(/-/g, '‑');
+---
+<Base>
+  <p class="positioning">{site.positioning}</p>
+
+  <div class="intro">
+    <img class="intro__photo" src={site.photo} alt={site.name} width="120" height="120" />
+    <div class="intro__copy">
+      <p class="intro__role">
+        {site.role} at <a href={site.affiliationUrl}>{site.affiliation}</a>
+      </p>
+      {site.bio.map((line) => <p class="bio">{line}</p>)}
+    </div>
+  </div>
+
+  <ul class="linkrow" aria-label="Profile links">
+    <li class="linkrow__primary"><a href={site.cvPdf} download>Download CV</a></li>
+    <li class="linkrow__primary"><a href={`mailto:${site.email}`}>Email</a></li>
+    {site.links.map((l) => <li><a href={l.url}>{l.label}</a></li>)}
+  </ul>
+
+  <h2>Selected work</h2>
+  {selected.map((s) => (
+    <article class="entry">
+      <div class="entry__stamp entry__stamp--typed">
+        <span>{s.stamp}</span><span class="entry__stamp-sep" aria-hidden="true">·</span><span>{s.kind}</span>
+      </div>
+      <div class="entry__body">
+        <h3 class="entry__title">{s.href ? <a href={s.href}>{s.title}</a> : s.title}</h3>
+        {s.why && <p class="entry__why">{s.why}</p>}
+      </div>
+    </article>
+  ))}
+
+  {recent.length > 0 && (
+    <>
+      <h2>Highlights</h2>
+      {recent.map((r) => (
+      <article class="entry">
+        <div class="entry__stamp entry__stamp--typed">
+          <time datetime={r.date.toISOString().slice(0, 10)}>{fmt(r.date)}</time>
+          <span class="entry__stamp-sep" aria-hidden="true">·</span><span>{r.kind}</span>
+        </div>
+        <div class="entry__body">
+          <h3 class="entry__title"><a href={r.href}>{r.title}</a></h3>
+          <p class="entry__meta">{r.summary}</p>
+        </div>
+      </article>
+      ))}
+    </>
+  )}
+</Base>

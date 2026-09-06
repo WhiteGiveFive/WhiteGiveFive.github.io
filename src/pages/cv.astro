@@ -1,0 +1,90 @@
+---
+import Base from '../layouts/Base.astro';
+import Citation from '../components/Citation.astro';
+import { site } from '../site.config';
+import { getCollection } from 'astro:content';
+import cv from '../data/cv.json';
+
+// Publications come from the same collection /research renders, so the CV can
+// never drift from the publication list.
+const pubs = (await getCollection('publications')).sort((a, b) => b.data.year - a.data.year);
+---
+<Base title="CV" description="Curriculum vitae of Hongrui Shi.">
+  <h1>Curriculum vitae</h1>
+  <p class="cv-actions">
+    <a class="action-link" href={site.cvPdf} download>Download PDF</a> · <a href={`mailto:${site.email}`}>{site.email}</a> ·{' '}
+    <a href={site.affiliationUrl}>{site.affiliation}</a>
+  </p>
+
+  <nav class="cv-jump" aria-label="CV sections">
+    <a href="#experience">Experience</a><span aria-hidden="true">·</span>
+    <a href="#education">Education</a><span aria-hidden="true">·</span>
+    <a href="#publications">Publications</a><span aria-hidden="true">·</span>
+    <a href="#funding">Funding</a><span aria-hidden="true">·</span>
+    <a href="#talks">Talks</a><span aria-hidden="true">·</span>
+    <a href="#service">Service</a>
+  </nav>
+
+  <div class="wide-gutter">
+  <h2 id="experience">Experience</h2>
+  {cv.experience.map((e) => (
+    <article class="entry">
+      <div class="entry__stamp">{e.when}</div>
+      <div class="entry__body">
+        <h3 class="entry__title">{e.role}</h3>
+        <p class="entry__meta">{e.org} · {e.where}</p>
+        <ul class="entry__why">{e.items.map((i) => <li>{i}</li>)}</ul>
+      </div>
+    </article>
+  ))}
+
+  <h2 id="education">Education</h2>
+  {cv.education.map((e) => (
+    <article class="entry">
+      <div class="entry__stamp">{e.when}</div>
+      <div class="entry__body">
+        <h3 class="entry__title">{e.degree}</h3>
+        <p class="entry__meta">{e.org}</p>
+        {e.note && <p class="entry__why">{e.note}</p>}
+      </div>
+    </article>
+  ))}
+
+  </div>
+
+  <h2 id="publications">Publications</h2>
+  {pubs.map((p) => <Citation pub={p.data} />)}
+
+  <h2 id="funding">Funding</h2>
+  {cv.funding.map((f) => (
+    <article class="entry">
+      <div class="entry__stamp">{f.when}</div>
+      <div class="entry__body">
+        <h3 class="entry__title">{f.what} <span class="tag">{f.status}</span></h3>
+        <p class="entry__why">{f.detail}</p>
+      </div>
+    </article>
+  ))}
+
+  <h2 id="talks">Talks</h2>
+  {cv.talks.map((t) => (
+    <article class="entry">
+      <div class="entry__stamp">{t.when}</div>
+      <div class="entry__body">
+        <h3 class="entry__title">{t.what}</h3>
+        <p class="entry__meta">{t.where}</p>
+      </div>
+    </article>
+  ))}
+
+  <h2 id="service">Service</h2>
+  {cv.service.map((s) => (
+    <article class="entry">
+      <div class="entry__stamp">{s.when}</div>
+      <div class="entry__body">
+        <h3 class="entry__title">{s.what}</h3>
+        <p class="entry__meta">{s.detail}</p>
+      </div>
+    </article>
+  ))}
+</Base>

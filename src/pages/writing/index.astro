@@ -1,0 +1,21 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('writing', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+<Base title="Writing" description="Long-form essays on machine learning and ecological measurement.">
+  <h1>Writing</h1>
+  <p>Longer pieces, published when there is something to say. Shorter entries are in <a href="/notes">Notes</a>.</p>
+
+  {posts.map((p) => (
+    <article class="entry">
+      <div class="entry__stamp">{p.data.date.toISOString().slice(0, 10)}</div>
+      <div class="entry__body">
+        <h3 class="entry__title"><a href={`/writing/${p.id}`}>{p.data.title}</a></h3>
+        <p class="entry__meta">{p.data.summary}</p>
+      </div>
+    </article>
+  ))}
+</Base>

@@ -1,0 +1,84 @@
+---
+import { site, nav } from '../site.config';
+import { getCollection } from 'astro:content';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** Set to false for detail pages without their own representative image. */
+  socialImage?: string | false;
+}
+
+const { title, description = site.description, socialImage = '/og.png' } = Astro.props;
+
+// Stream sections (notes, writing) only enter the nav once they have entries —
+// a nav item leading to an empty page reads as abandoned. Adding the first
+// published entry brings the link back automatically.
+const counts = {
+  '/notes': (await getCollection('notes', ({ data }) => !data.draft)).length,
+  '/writing': (await getCollection('writing', ({ data }) => !data.draft)).length,
+};
+const visibleNav = nav.filter((item) => counts[item.href as keyof typeof counts] !== 0);
+const pageTitle = title ? `${title} — ${site.citationName}` : `${site.citationName}`;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isHome = path === '/';
+const socialImageUrl = socialImage ? new URL(socialImage, Astro.site).href : undefined;
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    {socialImageUrl && <meta property="og:image" content={socialImageUrl} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    {socialImageUrl && <meta name="twitter:image" content={socialImageUrl} />}
+    <meta name="theme-color" content="#fdfdfb" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#16150f" media="(prefers-color-scheme: dark)" />
+
+    <link rel="alternate" type="application/rss+xml" title={site.citationName} href="/rss.xml" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <div class="page">
+      <header class="masthead">
+        <div class="masthead__bar">
+          {isHome ? (
+            <h1 class="masthead__name masthead__name--home"><a href="/">{site.name}</a></h1>
+          ) : (
+            <p class="masthead__name"><a href="/">{site.name}</a></p>
+          )}
+          <nav class="nav" aria-label="Primary navigation">
+            {visibleNav.map((item, i) => (
+              <>
+                {i > 0 && <span class="sep" aria-hidden="true">·</span>}
+                <a href={item.href} aria-current={path.startsWith(item.href) ? 'page' : undefined}>
+                  {item.label}
+                </a>
+              </>
+            ))}
+          </nav>
+        </div>
+      </header>
+
+      <main id="content" tabindex="-1"><slot /></main>
+
+      <footer class="site">
+        <a href={`mailto:${site.email}`}>{site.email}</a> · <a href="/rss.xml">RSS</a>
+      </footer>
+    </div>
+  </body>
+</html>

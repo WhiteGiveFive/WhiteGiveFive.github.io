@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import Citation from '../components/Citation.astro';
+import { getCollection } from 'astro:content';
+
+const pubs = (await getCollection('publications')).sort((a, b) => b.data.year - a.data.year);
+const years = [...new Set(pubs.map((p) => p.data.year))];
+---
+<Base title="Research" description="Peer-reviewed publications by Hongrui Shi.">
+  <h1>Research</h1>
+  <p>
+    Reverse chronological, author lists in full.{' '}
+    <a href="https://scholar.google.com/citations?user=X6z1XHMAAAAJ">Google Scholar</a> carries citation counts.
+  </p>
+
+  {years.map((year) => (
+    <>
+      <h2>{year}</h2>
+      {pubs.filter((p) => p.data.year === year).map((p) => <Citation pub={p.data} showYear={false} />)}
+    </>
+  ))}
+</Base>

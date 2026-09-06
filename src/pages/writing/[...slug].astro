@@ -1,0 +1,24 @@
+---
+import Article from '../../layouts/Article.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = (await getCollection('writing', ({ data }) => !data.draft))
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  return posts.map((entry, index) => ({
+    params: { slug: entry.id },
+    props: {
+      entry,
+      newer: index > 0 ? { title: posts[index - 1].data.title, href: `/writing/${posts[index - 1].id}` } : undefined,
+      older: index < posts.length - 1 ? { title: posts[index + 1].data.title, href: `/writing/${posts[index + 1].id}` } : undefined,
+    },
+  }));
+}
+
+const { entry, newer, older } = Astro.props;
+const { Content } = await render(entry);
+---
+<Article title={entry.data.title} date={entry.data.date} summary={entry.data.summary} kind="post"
+  tags={entry.data.tags} newer={newer} older={older}>
+  <Content />
+</Article>

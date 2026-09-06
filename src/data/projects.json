@@ -1,0 +1,70 @@
+[
+  {
+    "id": "habibench",
+    "name": "HabiBench",
+    "subtitle": "An Open Multimodal Benchmark for Reliable UK Terrestrial Habitat Assessment",
+    "blurb": "HabiBench is developing an open benchmark for reliable habitat assessment by combining ground-level photographs, Earth-observation embeddings and ecological text from open, expert-audited data. It evaluates classification accuracy alongside calibrated uncertainty, the contribution of each modality and robustness when evidence is missing—helping establish when automated assessment can support or triage a field visit.",
+    "role": "Lead applicant and Principal Investigator; leads the technical programme at the University of Lincoln.",
+    "funding": "£22,278 awarded through the EPSRC-funded UK Open Multimodal AI Network, OMAIB Round 2.",
+    "outputs": [
+      "UKHab-aligned multimodal dataset",
+      "reusable construction pipeline",
+      "reference baselines and model cards",
+      "reliability-aware evaluation protocol and OMAIB leaderboard",
+      "dataset report and preprint"
+    ],
+    "partners": [
+      "James Brown and Lan Qie — co-investigators, University of Lincoln",
+      "Mozaic Earth — deployment validation",
+      "UKCEH — ecological guidance and uptake"
+    ],
+    "group": "current",
+    "featured": true,
+    "sortOrder": 1,
+    "status": "active",
+    "years": "2026–2027",
+    "links": []
+  },
+  {
+    "id": "ai-hab",
+    "name": "AI-Hab",
+    "subtitle": "Ground-level computer vision for UK habitat assessment",
+    "blurb": "Automated habitat assessment from UKCEH Countryside Survey photographs. Over 5,000 expert-labelled images across 18 UKHab-aligned classes; nine convolutional and vision-transformer architectures compared under one reproducible pipeline. The resulting paper, code and demonstrator provide the empirical foundation for the broader HabiBench programme.",
+    "role": "Lead for AI model development and quantitative analysis. NERC-funded University of Lincoln–UKCEH collaboration.",
+    "group": "current",
+    "sortOrder": 2,
+    "status": "active",
+    "years": "2024–2027",
+    "links": [
+      { "label": "Project page", "url": "https://whitegivefive.github.io/habitat-classification/" },
+      { "label": "Code (MIT)", "url": "https://github.com/WhiteGiveFive/Habitat-Classification-from-Ground-Level-Imagery" },
+      { "label": "Live demonstrator", "url": "https://huggingface.co/spaces/whitegivefive/aihab-demo" }
+    ],
+    "selected": 3,
+    "why": "Upload a photograph of a field and the model tells you what habitat it is. The fastest way to see whether the research actually works."
+  },
+  {
+    "id": "fedfsc",
+    "name": "FedFSC",
+    "subtitle": "Few-shot client updates for heterogeneous federated learning",
+    "blurb": "Reference implementation of few-shot client updates for heterogeneous federated learning, accompanying the DistributedML 2023 paper.",
+    "role": "Sole author.",
+    "group": "other",
+    "sortOrder": 4,
+    "status": "archived",
+    "years": "2023",
+    "links": [{ "label": "Code", "url": "https://github.com/WhiteGiveFive/FedFSC" }]
+  },
+  {
+    "id": "pezego",
+    "name": "Pezego",
+    "subtitle": "AI-assisted pest-management decision support",
+    "blurb": "A mobile pest-management tool for agronomists and farmers. Contributed LLM-based multi-agent methods for generating informed, situation-specific treatment recommendations.",
+    "role": "Research Assistant, University of Sheffield. Algorithm development and lead author on the resulting preprint.",
+    "group": "other",
+    "sortOrder": 3,
+    "status": "contributed",
+    "years": "2024–2025",
+    "links": [{ "label": "Product", "url": "https://www.mutus.co.uk/pest/" }]
+  }
+]

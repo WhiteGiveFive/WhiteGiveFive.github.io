@@ -1,0 +1,21 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const notes = (await getCollection('notes', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+<Base title="Notes" description="Short dated entries: results, papers read, talks given.">
+  <h1>Notes</h1>
+  <p>Short entries — a result, a paper worth reading, a talk given. Longer pieces live in <a href="/writing">Writing</a>.</p>
+
+  {notes.map((n) => (
+    <article class="entry">
+      <div class="entry__stamp">{n.data.date.toISOString().slice(0, 10)}</div>
+      <div class="entry__body">
+        <h3 class="entry__title"><a href={`/notes/${n.id}`}>{n.data.title}</a></h3>
+        <p class="entry__meta">{n.data.summary}</p>
+      </div>
+    </article>
+  ))}
+</Base>

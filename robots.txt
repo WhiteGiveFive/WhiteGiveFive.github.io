@@ -1,3 +1,0 @@
-User-agent: *
-Disallow:
-Sitemap: https://WhiteGiveFive.github.io/sitemap.xml

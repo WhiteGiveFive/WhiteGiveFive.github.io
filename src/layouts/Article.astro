@@ -1,0 +1,50 @@
+---
+import Base from './Base.astro';
+// Imported here rather than in Base so the ~23KB of KaTeX CSS only ships on
+// pages that can actually contain math (spec C6).
+import 'katex/dist/katex.min.css';
+
+interface Sibling { title: string; href: string; }
+interface Props {
+  title: string;
+  date: Date;
+  summary: string;
+  kind: 'note' | 'post';
+  tags?: string[];
+  newer?: Sibling;
+  older?: Sibling;
+}
+const { title, date, summary, kind, tags = [], newer, older } = Astro.props;
+const iso = date.toISOString().slice(0, 10);
+const indexPath = kind === 'note' ? '/notes' : '/writing';
+const indexLabel = kind === 'note' ? 'All notes' : 'All writing';
+---
+<Base title={title} description={summary} socialImage={false}>
+  <article class="article">
+    <a class="article__back" href={indexPath}>← {indexLabel}</a>
+    <p class="article__stamp">
+      <time datetime={iso}>{iso}</time> · {kind}
+    </p>
+    <h1>{title}</h1>
+    {tags.length > 0 && (
+      <ul class="article__tags" aria-label="Topics">
+        {tags.map((tag) => <li>{tag}</li>)}
+      </ul>
+    )}
+    <div class="prose"><slot /></div>
+
+    {(newer || older) && (
+      <nav class="article__pagination" aria-label={`${kind} navigation`}>
+        {newer ? (
+          <a href={newer.href}><span>← Newer {kind}</span><strong>{newer.title}</strong></a>
+        ) : <span></span>}
+        {older && (
+          <a class="article__pagination-older" href={older.href}>
+            <span>Older {kind} →</span><strong>{older.title}</strong>
+          </a>
+        )}
+      </nav>
+    )}
+    <a class="article__back article__back--footer" href={indexPath}>← {indexLabel}</a>
+  </article>
+</Base>

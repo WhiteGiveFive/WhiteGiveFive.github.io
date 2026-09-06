@@ -1,0 +1,67 @@
+{
+  "experience": [
+    {
+      "role": "Postdoctoral Research Associate",
+      "org": "University of Lincoln",
+      "where": "Lincoln, UK",
+      "when": "Sep 2024 –",
+      "items": [
+        "Lead AI model development for AI-Hab, a NERC-funded University of Lincoln–UKCEH collaboration; curated an analytical dataset of over 5,000 expert-labelled photographs across 18 fine-grained UKHab-aligned habitat classes from a source pool exceeding 10,000 UKCEH Countryside Survey images.",
+        "Designed reproducible training and evaluation pipelines comparing nine convolutional and vision-transformer models; the best reached 71.5% top-1 and 90.9% top-3 accuracy, comparable to the strongest of three experienced ecologists on a stratified held-out subset.",
+        "Led the formal analysis and first-author paper in Ecological Informatics, examining class imbalance and habitat-level errors; contrastive learning raised class-specific recall by six percentage points for Improved Grassland and five for Neutral Grassland.",
+        "Extended AI-Hab beyond image-only assessment with a multimodal system combining imagery, geospatial data (Google Satellite Embeddings) and LLM-derived ecological descriptions; internal results show a two-point top-1 gain over the image-only baseline.",
+        "Released public code, trained models and a public demonstrator; co-organised the 2025 stakeholder workshop involving Defra and Mozaic Earth."
+      ]
+    },
+    {
+      "role": "Research Assistant (part-time)",
+      "org": "University of Sheffield",
+      "where": "Sheffield, UK",
+      "when": "Sep 2024 – Apr 2025",
+      "items": [
+        "Developed LLM-based multi-agent decision-support methods for Pezego, a mobile pest-management tool for agronomists and farmers, and led the resulting preprint."
+      ]
+    },
+    {
+      "role": "Graduate Teaching Assistant (part-time)",
+      "org": "University of Sheffield",
+      "where": "Sheffield, UK",
+      "when": "Sep 2021 – May 2022",
+      "items": [
+        "Delivered laboratory sessions and student workshops and assessed coursework across Machine Learning, Adaptive Intelligence, Text Processing and Natural Language Processing."
+      ]
+    },
+    {
+      "role": "Control System Development Engineer; Team Leader",
+      "org": "China Nuclear Power Engineering Co. (CNPEC)",
+      "where": "Shenzhen, China",
+      "when": "Jul 2010 – May 2019",
+      "items": [
+        "Led a 13-member multidisciplinary control-system design team, coordinating parallel technical deliverables and engineering documentation for nuclear power projects."
+      ]
+    }
+  ],
+  "education": [
+    { "degree": "PhD, Computer Science", "org": "University of Sheffield", "when": "2020 – 2025",
+      "note": "Efficient and privacy-aware federated learning under data and system heterogeneity: partial-model training, few-shot updates and active data selection. Supervised by Po Yang and Valentin Radu." },
+    { "degree": "MSc, Artificial Intelligence", "org": "University of Edinburgh", "when": "2019 – 2020", "note": "Merit." },
+    { "degree": "MSc, Control Science and Engineering", "org": "Harbin Institute of Technology", "when": "2008 – 2010", "note": "" },
+    { "degree": "BEng, Automation", "org": "Harbin Institute of Technology", "when": "2004 – 2008", "note": "" }
+  ],
+  "funding": [
+    { "what": "HabiFusion and HabiBench — multimodal habitat assessment", "detail": "Principal Investigator. Submitted to EPSRC-supported OMAIB Rounds 1 and 2; the second redesigned around open LUCAS data, reliability measures and proposed deployment validation with Mozaic Earth.", "when": "2026", "status": "submitted" }
+  ],
+  "talks": [
+    { "what": "Computer vision for habitat monitoring", "where": "NERC Digital Gathering; University of Lincoln RAISE showcase", "when": "2025" },
+    { "what": "AI-Hab stakeholder workshop (co-organiser)", "where": "with Defra and Mozaic Earth", "when": "2025" },
+    { "what": "Closing the gap between client and global model performance in heterogeneous FL", "where": "On-device AI, Samsung R&D Institute UK", "when": "2022" },
+    { "what": "Challenges and solutions in heterogeneous federated learning", "where": "On-device AI, Samsung R&D Institute UK", "when": "2022" },
+    { "what": "Data selection for efficient model update in federated learning", "where": "EuroMLSys at EuroSys", "when": "2022" },
+    { "what": "Towards federated learning with attention transfer", "where": "EdgeSys at EuroSys", "when": "2021" }
+  ],
+  "service": [
+    { "what": "Peer reviewer", "detail": "IEEE ICIP; IEEE Internet of Things Journal; Ophthalmology Science", "when": "ongoing" },
+    { "what": "Teaching and mentoring", "detail": "Supervised a master's student; guest teaching on efficient on-device learning and computer vision for habitat monitoring", "when": "2021 – 2026" },
+    { "what": "Student volunteer", "detail": "ACM/IEEE Conference on Information Processing in Sensor Networks (IPSN)", "when": "2022" }
+  ]
+}

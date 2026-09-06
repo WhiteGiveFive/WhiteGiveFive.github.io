@@ -1,0 +1,94 @@
+[
+  {
+    "id": "aihab-ecoinf-2026",
+    "title": "Habitat classification from ground-level imagery using deep neural networks",
+    "authors": [
+      "Hongrui Shi",
+      "Lisa Norton",
+      "Lucy Ridding",
+      "Simon Rolph",
+      "Tom August",
+      "Claire M. Wood",
+      "Lan Qie",
+      "Petra Bosilj",
+      "James M. Brown"
+    ],
+    "venue": "Ecological Informatics, 95, 103751",
+    "year": 2026,
+    "type": "journal",
+    "doi": "10.1016/j.ecoinf.2026.103751",
+    "code": "https://github.com/WhiteGiveFive/Habitat-Classification-from-Ground-Level-Imagery",
+    "selected": 1,
+    "why": "A single ground-level photograph is enough to place a site into one of 18 fine-grained UKHab classes at 71.5% top-1 — comparable to the strongest of three experienced ecologists on the same held-out photographs."
+  },
+  {
+    "id": "icdcs-2025",
+    "title": "Federated learning with workload reduction through partial training of client models and entropy-based data selection",
+    "authors": [
+      "Hongrui Shi",
+      "Valentin Radu",
+      "Po Yang"
+    ],
+    "venue": "IEEE ICDCS",
+    "year": 2025,
+    "type": "conference",
+    "pages": "373–383",
+    "doi": "10.1109/ICDCS63083.2025.00044",
+    "selected": 2,
+    "why": "Attacks client-side training cost from both ends at once — training only part of the model, on only the data worth training on — instead of trading one saving for the other."
+  },
+  {
+    "id": "distributedml-2023",
+    "title": "Lightweight workloads in heterogeneous federated learning via few-shot learning",
+    "authors": [
+      "Hongrui Shi",
+      "Valentin Radu",
+      "Po Yang"
+    ],
+    "venue": "DistributedML at ACM CoNEXT",
+    "year": 2023,
+    "type": "workshop",
+    "pages": "21–26",
+    "doi": "10.1145/3630048.3630185",
+    "code": "https://github.com/WhiteGiveFive/FedFSC"
+  },
+  {
+    "id": "euromlsys-2023",
+    "title": "Distributed training for speech recognition using local knowledge aggregation and knowledge distillation in heterogeneous systems",
+    "authors": [
+      "Hongrui Shi",
+      "Valentin Radu",
+      "Po Yang"
+    ],
+    "venue": "EuroMLSys at EuroSys",
+    "year": 2023,
+    "type": "workshop",
+    "pages": "64–70",
+    "doi": "10.1145/3578356.3592591"
+  },
+  {
+    "id": "euromlsys-2022",
+    "title": "Data selection for efficient model update in federated learning",
+    "authors": [
+      "Hongrui Shi",
+      "Valentin Radu"
+    ],
+    "venue": "EuroMLSys at EuroSys",
+    "year": 2022,
+    "type": "workshop",
+    "pages": "72–78",
+    "doi": "10.1145/3517207.3526980"
+  },
+  {
+    "id": "edgesys-2021",
+    "title": "Towards federated learning with attention transfer to mitigate system and data heterogeneity of clients",
+    "authors": [
+      "Hongrui Shi",
+      "Valentin Radu"
+    ],
+    "venue": "EdgeSys at EuroSys",
+    "year": 2021,
+    "doi": "10.1145/3434770.3459739",
+    "type": "workshop"
+  }
+]

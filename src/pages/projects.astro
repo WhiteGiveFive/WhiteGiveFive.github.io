@@ -1,0 +1,76 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const projects = await getCollection('projects');
+const groups = [
+  {
+    id: 'current-research',
+    heading: 'Current research',
+    projects: projects.filter((p) => p.data.group === 'current'),
+  },
+  {
+    id: 'other-projects',
+    heading: 'Other projects and research software',
+    projects: projects.filter((p) => p.data.group === 'other'),
+  },
+]
+  .map((group) => ({
+    ...group,
+    projects: group.projects.sort((a, b) => a.data.sortOrder - b.data.sortOrder),
+  }))
+  .filter((group) => group.projects.length > 0);
+---
+<Base title="Projects" description="Research programmes, funded projects, open benchmarks, software and demonstrators by Hongrui Shi.">
+  <h1>Projects</h1>
+  <p>Research programmes, open benchmarks, software and demonstrators. Each entry states my role, collaborators, funding and current status.</p>
+
+  {groups.map((group) => (
+    <section class="project-group" aria-labelledby={group.id}>
+      <h2 id={group.id}>{group.heading}</h2>
+
+      {group.projects.map((p) => (
+        <article class:list={['entry', 'project-entry', { 'project-entry--featured': p.data.featured }]}> 
+          <div class="entry__stamp entry__stamp--typed">
+            <span>{p.data.years}</span>
+            <span class="entry__stamp-sep" aria-hidden="true">·</span>
+            <span>{p.data.status}</span>
+          </div>
+          <div class="entry__body">
+            {p.data.featured && <p class="project__kicker">Funded research project</p>}
+            <h3 class="entry__title">
+              {p.data.links[0] ? <a href={p.data.links[0].url}>{p.data.name}</a> : p.data.name}
+            </h3>
+            {p.data.subtitle && <p class="project__subtitle">{p.data.subtitle}</p>}
+            <p class="project__role">{p.data.role}</p>
+            {p.data.funding && <p class="project__funding">{p.data.funding}</p>}
+            <p class="entry__why">{p.data.blurb}</p>
+
+            {(p.data.outputs.length > 0 || p.data.partners.length > 0) && (
+              <dl class="project__facts">
+                {p.data.outputs.length > 0 && (
+                  <div>
+                    <dt>Planned open outputs</dt>
+                    <dd>{p.data.outputs.join(' · ')}</dd>
+                  </div>
+                )}
+                {p.data.partners.length > 0 && (
+                  <div>
+                    <dt>Collaboration</dt>
+                    <dd>{p.data.partners.join(' · ')}</dd>
+                  </div>
+                )}
+              </dl>
+            )}
+
+            {p.data.links.length > 0 && (
+              <ul class="project__links" aria-label={`${p.data.name} links`}>
+                {p.data.links.map((link) => <li><a href={link.url}>{link.label}</a></li>)}
+              </ul>
+            )}
+          </div>
+        </article>
+      ))}
+    </section>
+  ))}
+</Base>

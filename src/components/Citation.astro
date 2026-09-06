@@ -1,0 +1,41 @@
+---
+import { site } from '../site.config';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  pub: CollectionEntry<'publications'>['data'];
+  showWhy?: boolean;
+  /** Off when the list is already grouped under year headings. */
+  showYear?: boolean;
+}
+const { pub, showWhy = false, showYear = true } = Astro.props;
+
+const doiUrl = pub.doi ? `https://doi.org/${pub.doi}` : undefined;
+const label = { journal: 'Journal', conference: 'Conference', workshop: 'Workshop', preprint: 'Preprint' }[pub.type];
+---
+<article class="entry">
+  <div class="entry__stamp entry__stamp--typed">
+    {showYear && <span>{pub.year}</span>}
+    {showYear && <span class="entry__stamp-sep" aria-hidden="true">·</span>}
+    <span>{label.toLowerCase()}</span>
+  </div>
+  <div class="entry__body">
+    <h3 class="entry__title">
+      {doiUrl ? <a href={doiUrl}>{pub.title}</a> : pub.title}
+    </h3>
+    <p class="entry__meta authors">
+      {pub.authors.map((a, i) => (
+        <>
+          {i > 0 && ', '}
+          {a === site.citationName ? <span class="me">{a}</span> : a}
+        </>
+      ))}
+    </p>
+    <p class="entry__meta">
+      <em>{pub.venue}</em>{pub.pages ? `, ${pub.pages}` : ''}
+      {doiUrl && <> · <a href={doiUrl}>DOI</a></>}
+      {pub.code && <> · <a href={pub.code}>code</a></>}
+    </p>
+    {showWhy && pub.why && <p class="entry__why">{pub.why}</p>}
+  </div>
+</article>
