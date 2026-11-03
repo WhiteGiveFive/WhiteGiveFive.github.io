@@ -1,0 +1,47 @@
+[
+  {
+    "date": "2026",
+    "kind": "competition",
+    "title": "EdgeBP: 9th place in the BHI 2026 Data Challenge",
+    "summary": [
+      "With ",
+      { "label": "Dr Zijie Huang", "url": "https://people.uwe.ac.uk/Person/LeonaHuang" },
+      ", developed LightGBM and attention-based FusionNet models for multimodal cuffless blood pressure estimation from PPG, ECG and tabular data. LightGBM was competitive with neural models while requiring less inference time and storage on our iPhone prototype."
+    ],
+    "url": "https://www.kaggle.com/competitions/bhi-2026-data-challenge-competition-track1",
+    "links": [
+      { "label": "iPhone demonstrator", "url": "https://github.com/WhiteGiveFive/bp-monitor-app" }
+    ]
+  },
+  {
+    "date": "2026",
+    "kind": "talk",
+    "title": "NERC Digital Gathering 2026",
+    "summary": "Presented our multimodal work on robust habitat recognition.",
+    "url": "",
+    "links": [
+      { "label": "Watch presentation", "url": "https://www.youtube.com/watch?v=J4PqSu22C2c&t=8s" }
+    ]
+  },
+  {
+    "date": "2026",
+    "kind": "funding",
+    "title": "HabiBench funding awarded",
+    "summary": "Awarded £22,278 through the EPSRC-funded UK Open Multimodal AI Network, OMAIB Round 2, to lead an open multimodal benchmark for reliable UK habitat assessment.",
+    "url": "/projects"
+  },
+  {
+    "date": "2026",
+    "kind": "publication",
+    "title": "AI-Hab paper published in Ecological Informatics",
+    "summary": "Habitat classification from ground-level imagery using deep neural networks — classifying photographs into 18 UKHab-aligned habitat classes.",
+    "url": "https://doi.org/10.1016/j.ecoinf.2026.103751"
+  },
+  {
+    "date": "2025",
+    "kind": "publication",
+    "title": "Paper published at IEEE ICDCS",
+    "summary": "Federated learning with workload reduction through partial training of client models and entropy-based data selection.",
+    "url": "https://doi.org/10.1109/ICDCS63083.2025.00044"
+  }
+]

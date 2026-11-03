@@ -2,8 +2,8 @@ import { defineCollection, z } from 'astro:content';
 import { glob, file } from 'astro/loaders';
 
 /**
- * Publications are data, not pages. /research, /cv and the homepage's selected
- * work all render from this one collection, so a citation is never edited twice.
+ * Publications are data, not pages. /research and /cv render from this one
+ * collection, so a citation is never edited twice.
  */
 const publications = defineCollection({
   loader: file('src/data/publications.json'),
@@ -16,7 +16,7 @@ const publications = defineCollection({
     pages: z.string().optional(),
     doi: z.string().optional(),
     code: z.string().optional(),
-    /** Shown in Selected Work on the homepage. Exactly why it matters, not what it is. */
+    /** Legacy selection metadata, retained for future curated views. */
     selected: z.number().optional(),
     why: z.string().optional(),
   }),

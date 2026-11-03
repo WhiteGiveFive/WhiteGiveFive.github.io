@@ -26,7 +26,7 @@ MD
 git add -A && git commit -m "note: something" && git push
 ```
 
-Indexes, the homepage "Recent" block, the RSS feed and the sitemap all update
+Indexes, the homepage "Highlights" block, the RSS feed and the sitemap all update
 themselves. Set `draft: true` in the frontmatter to keep an entry out of the
 build. Long-form pieces are identical but live in `src/content/writing/`.
 
@@ -35,15 +35,27 @@ build. Long-form pieces are identical but live in `src/content/writing/`.
 | Thing | File |
 |---|---|
 | Name, positioning, bio, links, email | `src/site.config.ts` |
-| Publications (drives /research, /cv **and** the homepage) | `src/data/publications.json` |
-| Projects (drives /projects and the homepage) | `src/data/projects.json` |
+| Homepage Recent activities log | `src/data/activities.json` |
+| Publications (drives /research and /cv) | `src/data/publications.json` |
+| Projects (drives /projects) | `src/data/projects.json` |
 | Everything else on the CV | `src/data/cv.json` |
 | Visual system | `src/styles/global.css` |
 | Downloadable CV generator | `scripts/generate_cv_pdf.py` |
 
-A publication is edited once. `selected: 1|2|3` plus a `why:` line promotes an
-item into the homepage's Selected Work block — that is the only thing that
-decides what appears there.
+## Logging a recent activity
+
+Add an entry to `src/data/activities.json` with `date`, `kind`, `title`,
+`summary` and `url` (use an empty string when there is no link). Entries appear
+on the homepage newest first. Use `YYYY`, `YYYY-MM` or `YYYY-MM-DD` to match
+the date you know; entries with the same date keep their order in the file.
+Add an optional `links` array of `{ "label": "…", "url": "…" }` objects for
+supporting resources such as code or demonstrators.
+Summaries can be plain strings or arrays of text and `{ "label": "…", "url": "…" }`
+objects to link names within the description.
+
+The log can include publications, talks, workshops, funding awards, project
+updates and other activities. It is separate from the full publication and
+project listings, so an activity can be a short update rather than a citation.
 
 ## Regenerating the PDF CV
 
@@ -68,5 +80,5 @@ thing to replace — do not add a second one.
 ## Future asset swaps
 
 - `public/favicon.svg` is a placeholder letterform.
-- `public/profile.png` is the current illustrated avatar and can be replaced
-  later with a headshot without changing any templates.
+- `public/profile.jpg` is the current profile photo, sourced from
+  `../metadata/avatar/photo.jpg`.

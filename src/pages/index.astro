@@ -1,32 +1,14 @@
 ---
 import Base from '../layouts/Base.astro';
 import { site } from '../site.config';
+import activities from '../data/activities.json';
 import { getCollection } from 'astro:content';
 
-const pubs = await getCollection('publications');
-const projects = await getCollection('projects');
 const notes = await getCollection('notes', ({ data }) => !data.draft);
 const posts = await getCollection('writing', ({ data }) => !data.draft);
 
-// Selected work — exactly 3, drawn from whichever collection holds the artifact.
-const selected = [
-  ...pubs.filter((p) => p.data.selected).map((p) => ({
-    order: p.data.selected!,
-    stamp: String(p.data.year),
-    kind: 'paper',
-    title: p.data.title,
-    href: p.data.doi ? `https://doi.org/${p.data.doi}` : undefined,
-    why: p.data.why,
-  })),
-  ...projects.filter((p) => p.data.selected).map((p) => ({
-    order: p.data.selected!,
-    stamp: p.data.years,
-    kind: 'project',
-    title: p.data.name,
-    href: p.data.links[0]?.url,
-    why: p.data.why,
-  })),
-].sort((a, b) => a.order - b.order);
+// Dates may be a year, month or full day; keep the recorded precision.
+const recentActivities = [...activities].sort((a, b) => b.date.localeCompare(a.date));
 
 const recent = [
   ...notes.map((n) => ({ ...n.data, href: `/notes/${n.id}`, kind: 'note' })),
@@ -45,9 +27,11 @@ const fmt = (d: Date) =>
     <img class="intro__photo" src={site.photo} alt={site.name} width="120" height="120" />
     <div class="intro__copy">
       <p class="intro__role">
-        {site.role} at <a href={site.affiliationUrl}>{site.affiliation}</a>
+        {site.role}
       </p>
-      {site.bio.map((line) => <p class="bio">{line}</p>)}
+      {site.bio.map((line) => (
+        <p class="bio">{line.map((part) => typeof part === 'string' ? part : <a href={part.url}>{part.label}</a>)}</p>
+      ))}
     </div>
   </div>
 
@@ -57,15 +41,23 @@ const fmt = (d: Date) =>
     {site.links.map((l) => <li><a href={l.url}>{l.label}</a></li>)}
   </ul>
 
-  <h2>Selected work</h2>
-  {selected.map((s) => (
+  <h2>Recent activities</h2>
+  {recentActivities.map((activity) => (
     <article class="entry">
       <div class="entry__stamp entry__stamp--typed">
-        <span>{s.stamp}</span><span class="entry__stamp-sep" aria-hidden="true">·</span><span>{s.kind}</span>
+        {activity.date.length === 4
+          ? <span>{activity.date}</span>
+          : <time datetime={activity.date}>{activity.date.replace(/-/g, '‑')}</time>}
+        <span class="entry__stamp-sep" aria-hidden="true">·</span><span>{activity.kind}</span>
       </div>
       <div class="entry__body">
-        <h3 class="entry__title">{s.href ? <a href={s.href}>{s.title}</a> : s.title}</h3>
-        {s.why && <p class="entry__why">{s.why}</p>}
+        <h3 class="entry__title">{activity.url ? <a href={activity.url}>{activity.title}</a> : activity.title}</h3>
+        <p class="entry__why">{typeof activity.summary === 'string'
+          ? activity.summary
+          : activity.summary.map((part) => typeof part === 'string' ? part : <a href={part.url}>{part.label}</a>)}</p>
+        {'links' in activity && activity.links && (
+          <p class="entry__meta">{activity.links.map((link) => <a href={link.url}>{link.label}</a>)}</p>
+        )}
       </div>
     </article>
   ))}
