@@ -6,7 +6,7 @@
     "summary": [
       "Our Team EdgeBP will present at the ",
       { "label": "IEEE BHI 2026 finalist session", "url": "https://bhi.embs.org/2026/data-competition/" },
-      ". The session takes place in Hong Kong on 14 December 2026. With ",
+      ". With ",
       { "label": "Dr Zijie Huang", "url": "https://people.uwe.ac.uk/Person/LeonaHuang" },
       ", developed LightGBM and attention-based FusionNet models for multimodal cuffless blood pressure estimation from PPG, ECG and tabular data. LightGBM was competitive with neural models while requiring less inference time and storage on our smartphone prototype."
     ],
