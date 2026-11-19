@@ -2,9 +2,11 @@
   {
     "date": "2026",
     "kind": "competition",
-    "title": "EdgeBP: 9th place in the BHI 2026 Data Challenge",
+    "title": "EdgeBP named a top 10 finalist in the IEEE BHI 2026 Data Competition",
     "summary": [
-      "With ",
+      "We placed 9th on the Track 1 leaderboard and will present at the ",
+      { "label": "IEEE BHI 2026 finalist session", "url": "https://bhi.embs.org/2026/data-competition/" },
+      " in Hong Kong on 14 December 2026. With ",
       { "label": "Dr Zijie Huang", "url": "https://people.uwe.ac.uk/Person/LeonaHuang" },
       ", developed LightGBM and attention-based FusionNet models for multimodal cuffless blood pressure estimation from PPG, ECG and tabular data. LightGBM was competitive with neural models while requiring less inference time and storage on our iPhone prototype."
     ],
